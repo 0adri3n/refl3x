@@ -4,7 +4,11 @@
 
 <p align="center"><img src="https://user-images.githubusercontent.com/62818208/186017970-d628a66c-851d-42fc-854b-ab3ab67dba87.png"></p>
 
-# Setup (from .exe)
+In refl3x, the goal is to press 50 times on the good keys, and to have the best reaction time. A best score system is here to help u in ur progression.
+
+Difficulty mean how many different keys u need to press. Easy mode have 4 keys, medium 6 keys and hard mode have 8 keys. Each colors in circles are linked to a key !
+
+# Setup (From .exe)
 
 NOT AVALAIBLE FOR THE MOMENT
 
