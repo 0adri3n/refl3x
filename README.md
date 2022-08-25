@@ -10,7 +10,10 @@ Difficulty mean how many different keys u need to press. Easy mode have 4 keys, 
 
 # Setup (From .exe)
 
-NOT AVALAIBLE FOR THE MOMENT
+1. Download the last release <a href="https://github.com/akira-trinity/refl3x/releases" target="_blank">here</a> 
+2. Extract
+3. Start refl3x.exe
+4. Ready to use !
 
 # Setup (From source code)
 
