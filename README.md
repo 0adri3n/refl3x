@@ -35,4 +35,8 @@ pip install pygame
 
 <p align="center"> Open an issue if u have one, don't hesitate to suggest new features to improve refl3x ! 
 
+# 
+
+Special thanks to https://github.com/niveshbirangal/discord-rpc !
+
 
