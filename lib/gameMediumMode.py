@@ -48,11 +48,24 @@ def mediumGame():
 
 
         gameWin.blit(winBg, (0,0))
+        text_surface = my_font.render('PRESS S TO START', False, (0, 0, 0))
+        gameWin.blit(text_surface, (0, 0))
+        pygame.display.flip()
+
+        notpressed = True
+        while notpressed:
+            for event in pygame.event.get():
+                if event.type == KEYDOWN and event.key == K_s:
+                    notpressed = False
+                    pygame.time.delay(3 * 1000)
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+
+        gameWin.blit(winBg, (0,0))
         text_surface = my_font.render('Green = Z | Blue = Q | Red = S | White = D | Black = A | Yellow = E', False, (0, 0, 0))
         gameWin.blit(text_surface, (0, 0))
         pygame.display.flip()
 
-        pygame.time.delay(3 * 1000)
 
         for i in range(50):
 
@@ -106,6 +119,7 @@ def mediumGame():
 
         bestscorefile = open("data/bestscore.yaml", "r")
         bestscoreData = yaml.safe_load(bestscorefile)
+        bestscorefile.close()
         
         if float(bestscoreData['mediumMode']) > float(averageReactTime):
             newscoretext = my_font.render('Brand new record !!! gg sir :)', False, RED)
@@ -113,6 +127,7 @@ def mediumGame():
             bestscoreData['mediumMode'] = float(averageReactTime)
             bestscorefileWrite = open("data/bestscore.yaml", "w")
             bestscorefileWrite.write(yaml.dump(bestscoreData, default_flow_style=False))
+            bestscorefileWrite.close()
 
         pygame.display.flip()
 
