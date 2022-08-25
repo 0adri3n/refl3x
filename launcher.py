@@ -4,8 +4,9 @@
 import tkinter
 import tkinter.font as font
 from PIL import Image, ImageTk
-from lib import gameEasyMode, gameMediumMode, gameHardMode
+from lib import gameEasyMode, gameMediumMode, gameHardMode, rpc
 import sys
+import time
 
 #---------------------------------------------------
 
@@ -17,19 +18,19 @@ import sys
 #----------------------------------
 
 def startEasy():
-    launcherapp.grab_set()
+
     gameEasyMode.easyGame()
-    launcherapp.grab_release()
+
 
 def startMedium():
-    launcherapp.withdraw()
+
     gameMediumMode.mediumGame()
-    launcherapp.deiconify()
+
 
 def startHard():
-    launcherapp.withdraw()
+    
     gameHardMode.hardGame()
-    launcherapp.deiconify()
+
 
 
 
@@ -106,5 +107,19 @@ tipsLabel['font'] = tipsFont
 
 #-------------------------------------
 
+client_id = '1012394653196230737' 
+rpc_obj = rpc.DiscordIpcClient.for_platform(client_id)
+start_time = time.mktime(time.localtime())
+
+activity = {
+        "timestamps": {
+                "start": start_time
+            },
+        "assets": {
+            "large_image": "refl3xlogo" 
+        },
+        "buttons" : [{"label" : "github", "url" : "https://github.com/akira-trinity/refl3x"}]
+    }
+rpc_obj.set_activity(activity)
 
 launcherapp.mainloop()
