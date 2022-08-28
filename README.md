@@ -42,4 +42,8 @@ pip install pygame
 
 Special thanks to https://github.com/niveshbirangal/discord-rpc !
 
+# Updates
+
+v1.1.0 coming soon !
+
 
