@@ -46,6 +46,32 @@ def saveSettings(rpcVar, volumeValue, settingsData):
     settingsWrite.write(yaml.dump(settingsData, default_flow_style=False))
     settingsWrite.close()
 
+def bestScoreWindow():
+
+    bestscoreapp = tkinter.Toplevel()
+    bestscoreapp.wm_title("refl3x")
+    bestscoreapp.wm_geometry("220x80")
+    bestscoreapp.wm_minsize(220, 80)
+    bestscoreapp.wm_maxsize(220, 80)
+    if sys.platform == "win32":
+        bestscoreapp.wm_iconbitmap("src/crosshairIcon.ico")
+    bestscoreapp.config(bg="#191919")
+
+    bestscorefile = open("data/bestscore.yaml", "r")
+    bestscoreData = yaml.safe_load(bestscorefile)
+    bestscorefile.close()
+
+    easyLabel = tkinter.Label(bestscoreapp, text="Easy mode best record : " + str(bestscoreData['easyMode']), bg="#191919", fg="white")
+    easyLabel.place(x=10, y=10)
+    
+    mediumLabel = tkinter.Label(bestscoreapp, text="Medium mode best record : " + str(bestscoreData['mediumMode']), bg="#191919", fg="white")
+    mediumLabel.place(x=10, y=30)
+    
+    hardLabel = tkinter.Label(bestscoreapp, text="Hard mode best record : " + str(bestscoreData['hardMode']), bg="#191919", fg="white")
+    hardLabel.place(x=10, y=50)
+
+    bestscoreapp.mainloop()
+
 def settingsWindow():
 
     settingapp = tkinter.Toplevel()
@@ -133,7 +159,10 @@ hardMode = tkinter.Button(launcherapp, text="Hard Mode", fg="black", bg="red", b
 hardMode.place(x=70, y=230)
 
 settingsButton = tkinter.Button(launcherapp, text="Settings", fg="black", bg="white", command=settingsWindow)
-settingsButton.place(x=80, y=330)
+settingsButton.place(x=45, y=330)
+
+bestScoreButton = tkinter.Button(launcherapp, text="Best records", fg="black", bg="white", command=bestScoreWindow)
+bestScoreButton.place(x=105, y=330)
 
 creditLabel = tkinter.Label(launcherapp, text="by akira :)", fg="white", bg="#191919")
 creditLabel.place(x=77, y=370)
