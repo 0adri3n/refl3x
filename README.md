@@ -32,7 +32,7 @@ pip install pygame
 <p align="center"> <img src="https://user-images.githubusercontent.com/62818208/187978682-b4c1b694-74b2-4477-b60d-2054946ee929.png"></p>
 
 
-<p align="center"> <img src="https://user-images.githubusercontent.com/62818208/186017954-7374795f-d991-4250-b0e7-184ad22288f9.png"></p>
+<p align="center"> <img src="https://user-images.githubusercontent.com/62818208/187978819-7c511dd9-9765-4ca6-bad0-09858343ad85.png"></p>
 
 #
 
