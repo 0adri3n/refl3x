@@ -14,7 +14,7 @@ def mediumGame():
     GREEN = (  0, 255,   0)
     RED = (255,   0,   0)
     BLACK = (0, 0, 0)
-    YELLOW = (255, 255, 0)
+    YELLOW = (204, 102, 0)
 
 
     pygame.init()
@@ -35,6 +35,10 @@ def mediumGame():
     my_font = pygame.font.SysFont('consolas', 20)
 
     clicksound = pygame.mixer.Sound('src/clicksound.mp3')
+    settingsfiles = open("data/settings.yaml", "r")
+    settingsData = yaml.safe_load(settingsfiles)
+    settingsfiles.close()
+    clicksound.set_volume(float(settingsData["volume"]))
 
     inGame = True
     playing = True
@@ -62,7 +66,7 @@ def mediumGame():
                     pygame.quit()
 
         gameWin.blit(winBg, (0,0))
-        text_surface = my_font.render('Green = Z | Blue = Q | Red = S | White = D | Black = A | Yellow = E', False, (0, 0, 0))
+        text_surface = my_font.render('Green = Z | Blue = Q | Red = S | White = D | Black = A | Orange = E', False, (0, 0, 0))
         gameWin.blit(text_surface, (0, 0))
         pygame.display.flip()
 
@@ -97,7 +101,7 @@ def mediumGame():
                         wrongKey += 1
             
             gameWin.blit(winBg, (0,0))
-            text_surface = my_font.render('Green = Z | Blue = Q | Red = S | White = D | Black = A | Yellow = E | ' + str(i+1) + '/50', False, (0, 0, 0))
+            text_surface = my_font.render('Green = Z | Blue = Q | Red = S | White = D | Black = A | Orange = E | ' + str(i+1) + '/50', False, (0, 0, 0))
             gameWin.blit(text_surface, (0, 0))
             pygame.display.flip()
 

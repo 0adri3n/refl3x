@@ -14,14 +14,13 @@ def hardGame():
     GREEN = (  0, 255,   0)
     RED = (255,   0,   0)
     BLACK = (0, 0, 0)
-    YELLOW = (255, 255, 0)
+    YELLOW = (204, 102, 0)
     PURPLE = (255, 51, 255)
     CYAN = (153, 255, 255)
 
 
     pygame.init()
     pygame.mixer.init() 
-
 
     gameWin = pygame.display.set_mode((1000,600))
 
@@ -37,7 +36,12 @@ def hardGame():
     my_font = pygame.font.SysFont('consolas', 15)
 
     clicksound = pygame.mixer.Sound('src/clicksound.mp3')
+    settingsfiles = open("data/settings.yaml", "r")
+    settingsData = yaml.safe_load(settingsfiles)
+    settingsfiles.close()
+    clicksound.set_volume(float(settingsData["volume"]))
 
+    
     inGame = True
     playing = True
 
@@ -64,7 +68,7 @@ def hardGame():
                     pygame.quit()
 
         gameWin.blit(winBg, (0,0))
-        text_surface = my_font.render('Green = Z | Blue = Q | Red = S | White = D | Black = A | Yellow = E | Purple = P | Cyan = L', False, (0, 0, 0))
+        text_surface = my_font.render('Green = Z | Blue = Q | Red = S | White = D | Black = A | Orange = E | Purple = P | Cyan = L', False, (0, 0, 0))
         gameWin.blit(text_surface, (0, 0))
         pygame.display.flip()
 
@@ -99,7 +103,7 @@ def hardGame():
                         wrongKey += 1
             
             gameWin.blit(winBg, (0,0))
-            text_surface = my_font.render('Green = Z | Blue = Q | Red = S | White = D | Black = A | Yellow = E | Purple = P | Cyan = L | ' + str(i+1) + '/50', False, (0, 0, 0))
+            text_surface = my_font.render('Green = Z | Blue = Q | Red = S | White = D | Black = A | Orange = E | Purple = P | Cyan = L | ' + str(i+1) + '/50', False, (0, 0, 0))
             gameWin.blit(text_surface, (0, 0))
             pygame.display.flip()
 

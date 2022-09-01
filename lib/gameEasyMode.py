@@ -34,6 +34,11 @@ def easyGame():
     my_font = pygame.font.SysFont('consolas', 20,)
 
     clicksound = pygame.mixer.Sound('src/clicksound.mp3')
+    settingsfiles = open("data/settings.yaml", "r")
+    settingsData = yaml.safe_load(settingsfiles)
+    settingsfiles.close()
+    clicksound.set_volume(float(settingsData["volume"]))
+    
 
     inGame = True
     playing = True
